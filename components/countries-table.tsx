@@ -55,9 +55,9 @@ function formatNumber(value: string) {
 
 export function CountriesTable({ rows }: { rows: Row[]}) {
   const [search, setSearch] = useState("")
-  const handleSearch = (e) => setSearch(e.target.value)
+  const handleSearch = (e: any) => setSearch(e.target.value)
   const [sort, setSort] = useState({ key: "countryCode", order: "asc" })
-  const handleSort = (key) => {
+  const handleSort = (key: string) => {
     if (sort.key === key) {
       setSort({ key, order: sort.order === "asc" ? "desc" : "asc" })
     } else {
@@ -76,14 +76,14 @@ export function CountriesTable({ rows }: { rows: Row[]}) {
             item.year.toString().includes(searchValue)
           )
         })
-        .sort((a, b) => {
+        .sort((a: any, b: any) => {
           if (sort.order === "asc") {
             return a[sort.key] > b[sort.key] ? 1 : -1
           } else {
             return a[sort.key] < b[sort.key] ? 1 : -1
           }
         }),
-    [search, sort],
+    [rows, search, sort.key, sort.order],
   )
   return (
     <div className="flex flex-col gap-4">
