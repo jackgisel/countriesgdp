@@ -23,7 +23,7 @@ import { useState, useMemo } from "react"
 import { Input } from "@/components/ui/input"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import Link from "next/link"
-import { parseNumberFromDb } from "@/lib/utils"
+import { formatNumber, parseNumberFromDb } from "@/lib/utils"
 
 
 export type Row = {
@@ -33,26 +33,7 @@ export type Row = {
   countryCode: string
 }
 
-function formatNumber(value: string) {
-  const decimalPlaces = 2;
-  
-  let num = parseNumberFromDb(value);
-  
-  // Determine the appropriate suffix and format the number
-  if (num >= 1e12) {
-      return '$' + (num / 1e12).toFixed(decimalPlaces) + 'T';
-  } else if (num >= 1e9) {
-      return '$' + (num / 1e9).toFixed(decimalPlaces) + 'B';
-  } else if (num >= 1e6) {
-      return '$' + (num / 1e6).toFixed(decimalPlaces) + 'M';
-  } else if (num >= 1e3) {
-      return '$' + (num / 1e3).toFixed(decimalPlaces) + 'K';
-  } else {
-      return '$' + num.toFixed(2);
-  }
-}
-
-export function CountriesTable({ rows, searchable = true }: { rows: Row[], searchable: boolean }) {
+export function CountriesTable({ rows, searchable = true }: { rows: Row[], searchable?: boolean }) {
   const [search, setSearch] = useState("")
   const handleSearch = (e: any) => setSearch(e.target.value)
   const [sort, setSort] = useState({ key: "countryCode", order: "asc" })

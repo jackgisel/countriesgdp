@@ -1,9 +1,9 @@
 "use client"
 
-import { Bar, BarChart, Line, LineChart, ResponsiveContainer } from "recharts"
+import { Bar, BarChart, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { Row } from "./countries-table"
-import { parseNumberFromDb } from "@/lib/utils"
+import { formatNumber, parseNumberFromDb } from "@/lib/utils"
 
 type DataObject = {
   year: string
@@ -55,6 +55,8 @@ export function Chart({ rows }: { rows: Row[] }) {
                     } as React.CSSProperties
                   }
                 />
+                <YAxis type="number" dataKey="amount" tickFormatter={v => formatNumber(String(v), 0)} />
+                <XAxis type="category" dataKey="year" />
               </LineChart>
             </ResponsiveContainer>
           </div>
