@@ -52,7 +52,7 @@ function formatNumber(value: string) {
   }
 }
 
-export function CountriesTable({ rows }: { rows: Row[]}) {
+export function CountriesTable({ rows, searchable = true }: { rows: Row[], searchable: boolean }) {
   const [search, setSearch] = useState("")
   const handleSearch = (e: any) => setSearch(e.target.value)
   const [sort, setSort] = useState({ key: "countryCode", order: "asc" })
@@ -86,9 +86,9 @@ export function CountriesTable({ rows }: { rows: Row[]}) {
   )
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-2">
+      {searchable && <div className="flex items-center gap-2">
         <Input placeholder="Search..." className="light:bg-white dark:bg-gray-400" value={search} onChange={handleSearch} />
-      </div>
+      </div>}
       <Table>
         <TableHeader>
           <TableRow>

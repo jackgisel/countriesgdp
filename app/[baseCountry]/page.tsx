@@ -1,4 +1,5 @@
 import { Chart } from "@/components/chart";
+import { CountriesTable } from "@/components/countries-table";
 import { db } from "@/db"
 import { sql } from "drizzle-orm"
 import { Metadata, ResolvingMetadata } from "next";
@@ -100,6 +101,10 @@ export default async function Page({
                 <ArrowLeftIcon className="mr-2 h-4 w-4" />
                 Return to Home
             </Link>
+            <div className="w-2/5">
+                <CountriesTable rows={data} searchable={false} />
+            </div>
+            
         </section>
     )
 }
