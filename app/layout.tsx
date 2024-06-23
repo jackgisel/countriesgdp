@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Countries GDP - All Countries",
   description: "Visualized and understandable GDP for each country",
+  openGraph: {
+    images: [logo]
+  }
 };
 
 export default function RootLayout({
