@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <section className="flex flex-row items-center">
           <Image priority alt="CountriesGDP logo" src={logo} height={48}
-      width={48} className="m-2" />
+      width={48} className="m-4" />
           <h1 className="text-4xl font-bold">Countries GDP</h1>
         </section>
         <main className="flex min-h-screen flex-col items-center justify-between px-24">
