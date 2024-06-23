@@ -1,6 +1,7 @@
 import { Chart } from "@/components/chart";
 import { db } from "@/db"
 import { sql } from "drizzle-orm"
+import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 
 async function getCountryData(code: string) {
@@ -49,13 +50,30 @@ function ArrowLeftIcon(props: any) {
         <path d="M19 12H5" />
       </svg>
     )
-  }
+}
+
+type Props = {
+    params: { baseCountry: string }
+}
+
+export async function generateMetadata(
+{ params }: Props,
+parent: ResolvingMetadata
+): Promise<Metadata> {
+const baseCountry = params.baseCountry;
+
+return {
+    title: `${baseCountry} - CountriesGDP`,
+    description: "The GDP data for " + baseCountry,
+    // openGraph: {
+    //     images: ['/some-specific-page-image.jpg'],
+    // },
+    }
+}
 
 export default async function Page({
     params
-  }: Readonly<{
-    params: { baseCountry: string }
-  }>) {
+  }: Props) {
     const data = await getCountryData(params.baseCountry);
     if (data.length === 0) {
         return <div className="p-24 flex flex-col items-center">
