@@ -22,6 +22,8 @@ To read more about using these font, please visit the Next.js documentation:
 import { useState, useMemo } from "react"
 import { Input } from "@/components/ui/input"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
+import Link from "next/link"
+import { parseNumberFromDb } from "@/lib/utils"
 
 
 export type Row = {
@@ -33,11 +35,8 @@ export type Row = {
 
 function formatNumber(value: string) {
   const decimalPlaces = 2;
-  // Remove any non-numeric characters except the decimal point
-  let cleanedValue = value.replace(/[^0-9.]/g, '');
   
-  // Convert to a number
-  let num = parseFloat(cleanedValue);
+  let num = parseNumberFromDb(value);
   
   // Determine the appropriate suffix and format the number
   if (num >= 1e12) {
@@ -114,8 +113,9 @@ export function CountriesTable({ rows }: { rows: Row[]}) {
         <TableBody>
           {data.map((item) => (
             <TableRow key={item.countryCode}>
-              <TableCell>{item.countryCode}</TableCell>
-              <TableCell>{item.countryName}</TableCell>
+              <TableCell><Link href={"/" + item.countryCode}>
+              {item.countryCode}</Link></TableCell>
+              <TableCell><Link href={"/" + item.countryCode}>{item.countryName}</Link></TableCell>
               <TableCell className="text-right">{formatNumber(item.amount)}</TableCell>
               <TableCell className="text-right">{item.year}</TableCell>
             </TableRow>
