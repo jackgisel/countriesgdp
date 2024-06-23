@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Image from 'next/image';
 import "./globals.css";
 import logo from '../public/icon.svg'
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,7 @@ export default function RootLayout({
         <section className="flex flex-row items-center">
           <Image priority alt="CountriesGDP logo" src={logo} height={48}
       width={48} className="m-4" />
-          <h1 className="text-4xl font-bold">Countries GDP</h1>
+          <Link href="/"><h1 className="text-4xl font-bold">Countries GDP</h1></Link>
         </section>
         <main className="flex min-h-screen flex-col items-center justify-between px-24">
           {children}
