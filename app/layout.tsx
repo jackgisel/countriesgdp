@@ -27,6 +27,11 @@ export default function RootLayout({
         <main className="flex min-h-screen flex-col items-center justify-between px-24">
           {children}
         </main>
+        <footer className="px-24 py-12">
+          <p className="text-center">
+            the data shown here comes from <a className="font-semibold" href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD">World Bank Group</a>. we don&apos;t have any affiliation with them.
+          </p>
+        </footer>
       </body>
     </html>
   );
