@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1717345015356,
+      "tag": "0000_natural_blur",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1717346588723,
+      "tag": "0001_optimal_morbius",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1717346772220,
+      "tag": "0002_wandering_nicolaos",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "8a3fea8a-c0fc-4555-8b15-34f88017db7b",
+  "prevId": "d88f610c-920c-4c68-9d9b-2573fbef5064",
+  "tables": {
+    "countries": {
+      "name": "countries",
+      "columns": {
+        "code": {
+          "name": "code",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}
