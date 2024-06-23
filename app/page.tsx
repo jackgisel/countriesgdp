@@ -34,7 +34,7 @@ export default async function Home() {
   const data = await getTopCountries();
 
   return (
-      <section className="w-3/5">
+      <section className="lg:w-3/5">
         <h3 className="text-2xl font-semibold text-center m-4">All Countries and Regions GDP</h3>
         <ul>
           <CountriesTable rows={data} />

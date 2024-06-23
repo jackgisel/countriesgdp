@@ -28,7 +28,7 @@ export default function RootLayout({
       width={48} className="m-4" />
           <Link href="/"><h1 className="text-4xl font-bold">Countries GDP</h1></Link>
         </section>
-        <main className="flex min-h-screen flex-col items-center justify-between px-24">
+        <main className="flex min-h-screen flex-col items-center justify-between lg:px-24">
           {children}
         </main>
         <footer className="px-24 py-12">
