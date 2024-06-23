@@ -113,9 +113,12 @@ export function CountriesTable({ rows }: { rows: Row[]}) {
         <TableBody>
           {data.map((item) => (
             <TableRow key={item.countryCode}>
-              <TableCell><Link href={"/" + item.countryCode}>
-              {item.countryCode}</Link></TableCell>
-              <TableCell><Link href={"/" + item.countryCode}>{item.countryName}</Link></TableCell>
+              <TableCell>
+                <Link href={"/" + item.countryCode}>{item.countryCode}</Link>
+              </TableCell>
+              <TableCell>
+                <Link href={"/" + item.countryCode}>{item.countryName}</Link>
+              </TableCell>
               <TableCell className="text-right">{formatNumber(item.amount)}</TableCell>
               <TableCell className="text-right">{item.year}</TableCell>
             </TableRow>
