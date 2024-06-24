@@ -4,7 +4,7 @@ import Image from 'next/image';
 import "./globals.css";
 import logo from '../public/icon.svg'
 import Link from "next/link";
-import PlausibleProvider from 'next-plausible'
+import PlausibleProvider from 'next-plausible';
 
 const inter = Inter({ subsets: ["latin"] });
 
