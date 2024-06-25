@@ -37,6 +37,11 @@ export default function RootLayout({
             <p className="text-center">
               the data shown here comes from <a className="font-semibold" href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD">World Bank Group</a>. we don&apos;t have any affiliation with them.
             </p>
+            <div className="mt-4 flex flex-row items-center justify-evenly">
+              <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/privacy">Privacy Policy</Link>
+              <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="/tos">Terms</Link>
+              <Link className="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="https://github.com/jackgisel/countriesgdp">Open Source Code</Link>
+            </div>
           </footer>
         </PlausibleProvider>
       </body>
