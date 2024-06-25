@@ -25,6 +25,7 @@ async function getTopCountries() {
   return mostRecentRows.rows.map(row => ({
     year: row[1] as string,
     amount: USDollar.format(row[2] as number),
+    amountValue: row[2] as number,
     countryName: row[4] as string,
     countryCode: row[3] as string
   }))

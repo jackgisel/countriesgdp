@@ -29,6 +29,7 @@ import { formatNumber, parseNumberFromDb } from "@/lib/utils"
 export type Row = {
   year: string
   amount: string
+  amountValue: number;
   countryName: string
   countryCode: string
 }
@@ -65,6 +66,7 @@ export function CountriesTable({ rows, searchable = true }: { rows: Row[], searc
         }),
     [rows, search, sort.key, sort.order],
   )
+  console.log(rows[0].amountValue)
   return (
     <div className="flex flex-col gap-4">
       {searchable && <div className="flex items-center gap-2">
@@ -73,15 +75,15 @@ export function CountriesTable({ rows, searchable = true }: { rows: Row[], searc
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="cursor-pointer" onClick={() => handleSort("code")}>
+            <TableHead className="cursor-pointer" onClick={() => handleSort("countryCode")}>
               Code
               {sort.key === "code" && <span className="ml-1">{sort.order === "asc" ? "\u2191" : "\u2193"}</span>}
             </TableHead>
-            <TableHead className="cursor-pointer" onClick={() => handleSort("name")}>
+            <TableHead className="cursor-pointer" onClick={() => handleSort("countryName")}>
               Name
               {sort.key === "name" && <span className="ml-1">{sort.order === "asc" ? "\u2191" : "\u2193"}</span>}
             </TableHead>
-            <TableHead className="text-right cursor-pointer" onClick={() => handleSort("gdp")}>
+            <TableHead className="text-right cursor-pointer" onClick={() => handleSort("amountValue")}>
               Total GDP
               {sort.key === "gdp" && <span className="ml-1">{sort.order === "asc" ? "\u2191" : "\u2193"}</span>}
             </TableHead>
