@@ -27,7 +27,7 @@ export default function Page() {
             </section>
             <section className="p-4">
                 <h2 className="text-xl font-semibold">Disclaimer of Warranties</h2>
-                <p>Our website and its content are provided "as is" without any warranties of any kind, either express or implied. We do not warrant that the information on our site is accurate, complete, or current.</p>
+                <p>Our website and its content are provided &quot;as is&quot; without any warranties of any kind, either express or implied. We do not warrant that the information on our site is accurate, complete, or current.</p>
             </section>
             <section className="p-4">
                 <h2 className="text-xl font-semibold">Limitation of Liability</h2>

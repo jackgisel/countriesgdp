@@ -10,7 +10,9 @@ type DataObject = {
   amount: number
 }
 
-export function Chart({ rows }: { rows: Row[] }) {
+const colors = ["#0000FF", "#FFD700", "#40E0D0"]
+
+export function Chart({ rows, secondaryRows }: { rows: Row[], secondaryRows?: Row[][] }) {
   const formattedRows: DataObject[] = rows.map(row => ({
     year: row.year,
     amount: parseNumberFromDb(row.amount)
@@ -62,32 +64,6 @@ export function Chart({ rows }: { rows: Row[] }) {
           </div>
         </CardContent>
       </Card>
-      {/* <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-base font-normal">Subscriptions</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">+2350</div>
-          <p className="text-xs text-muted-foreground">
-            +180.1% from last month
-          </p>
-          <div className="mt-4 h-[80px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={data}>
-                <Bar
-                  dataKey="subscription"
-                  style={
-                    {
-                      fill: "#00FF00",
-                      opacity: 1,
-                    } as React.CSSProperties
-                  }
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </CardContent>
-      </Card> */}
     </div>
   )
 }
